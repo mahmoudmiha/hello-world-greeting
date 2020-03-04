@@ -63,7 +63,7 @@ pipeline {
     stage('Tests de déploiement') {
       
       agent {
-        label 'agent_tomcat'
+        docker { image 'agent_tomcat' } 
       }
       
       stages {
