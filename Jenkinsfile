@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Back-end') {
             agent {
-                docker { image 'agent_docker' }
+                docker { image 'agent_java' }
             }
             steps {
                 sh 'echo "hello"'
