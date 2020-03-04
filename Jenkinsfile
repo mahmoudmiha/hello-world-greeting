@@ -71,7 +71,7 @@ pipeline {
         stage('Test de performance') {
           
           steps {
-            sh '/home/jenkins/apache-jmeter/bin/jmeter.sh -n -t ./jmeter.jmx -l /home/jenkins/test_report.jtl'
+            sh '/home/jenkins/apache-jmeter/bin/jmeter.sh -n -t ./hello_test.jmx -l /home/jenkins/test_report.jtl'
           }
          
         }
