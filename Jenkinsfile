@@ -7,7 +7,7 @@ pipeline {
     stage('Compilation et tests') {
 
       agent {
-        label 'agent_java'
+        docker { image 'agent_java' }
       }
 
       stages {
