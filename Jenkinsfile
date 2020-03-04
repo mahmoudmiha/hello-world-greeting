@@ -1,14 +1,14 @@
 pipeline {
   
-  agent none
+  agent {
+        docker { image 'agent_java' }
+      }
   
   stages {
     
     stage('Compilation et tests') {
 
-      agent {
-        docker { image 'agent_java' }
-      }     
+           
     }
   }
 }
