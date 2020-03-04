@@ -42,7 +42,7 @@ pipeline {
         stage('Publication du binaire') {
 
           steps {
-            sh "curl -u admin:admin123 --upload-file target/*.war 'ttp://10.10.20.31:8081/repository/depot_test/rondoudou${BUILD_NUMBER}.war'"        
+            sh "curl -u admin:admin123 --upload-file target/*.war 'http://10.10.20.31:8081/repository/depot_test/rondoudou${BUILD_NUMBER}.war'"        
           }
 
         }
@@ -62,7 +62,7 @@ pipeline {
         stage('Téléchargement du binaire') {
           
           steps {
-            sh "wget -P /home/jenkins/tomcat/webapps ttp://10.10.20.31:8081/repository/depot_test/rondoudou${BUILD_NUMBER}.war"
+            sh "wget -P /home/jenkins/tomcat/webapps http://10.10.20.31:8081/repository/depot_test/rondoudou${BUILD_NUMBER}.war"
             sh "mv /home/jenkins/tomcat/webapps/rondoudou${BUILD_NUMBER}.war /home/jenkins/tomcat/webapps/rondoudou.war"
           }
  
@@ -80,8 +80,8 @@ pipeline {
   
           steps {
     
-            sh "curl -u admin:admin123 --upload-file /home/jenkins/tomcat/webapps/rondoudou.war 'ttp://10.10.20.31:8081/repository/hello_fiable/rondoudou_fiable${BUILD_NUMBER}.war'"
-            sh "curl -u admin:admin123 --upload-file /home/jenkins/tomcat/webapps/rondoudou.war 'ttp://10.10.20.31:8081/repository/hello_livrable/dernier_rondoudou_fiable.war'"
+            sh "curl -u admin:admin123 --upload-file /home/jenkins/tomcat/webapps/rondoudou.war 'http://10.10.20.31:8081/repository/hello_fiable/rondoudou_fiable${BUILD_NUMBER}.war'"
+            sh "curl -u admin:admin123 --upload-file /home/jenkins/tomcat/webapps/rondoudou.war 'http://10.10.20.31:8081/repository/hello_livrable/dernier_rondoudou_fiable.war'"
   
           }
   
@@ -102,7 +102,7 @@ pipeline {
         stage('Téléchargement du binaire') {
           
           steps {
-            sh 'wget -P /home/jenkins/docker/tomcat_app ttp://10.10.20.31:8081/repository/hello_livrable/dernier_rondoudou_fiable.war'
+            sh 'wget -P /home/jenkins/docker/tomcat_app http://10.10.20.31:8081/repository/hello_livrable/dernier_rondoudou_fiable.war'
             sh 'mv /home/jenkins/docker/tomcat_app/dernier_rondoudou_fiable.war /home/jenkins/docker/tomcat_app/rondoudou.war'
           }
           
