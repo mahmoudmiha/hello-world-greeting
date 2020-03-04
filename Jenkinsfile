@@ -15,7 +15,7 @@ pipeline {
         stage('Test unitaire & publication') {
     
           steps {
-            sh 'cd /test_maven'
+            
             sh 'mvn test'
           }
       
